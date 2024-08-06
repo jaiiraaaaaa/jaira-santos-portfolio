@@ -329,6 +329,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 0 0 50px 0;
   position: relative;
   background-image: url('./assets/img/skills-bg.png');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* Keyframes for the upward transition */
@@ -632,10 +635,94 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   z-index: -4;
 }
 
-/************ Projects Css ************/
+/************ Experiences Css ************/
+
+.experiences {
+  padding: 80px 80px;
+  background-color: #134e2b;
+  background-image: url('./assets/img/experiences-bg.png'); /* Corrected */
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.experiences-bx {
+  background-color: #f4f1e8; /* Background color for the section */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Lifted effect */
+  padding: 50px;
+  text-align: center; /* Center title */
+  animation: moveUp 0.6s ease-out; /* Adjust duration and timing function as needed */
+}
+
+.experiences-bx h2 {
+  color: #55390a; /* Title color */
+  font-size: 45px;
+	font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.experience-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the content horizontally */
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Enlarges the experience card on hover */
+.experience-slide:hover {
+  transform: scale(1.05); /* Slightly enlarge */
+}
+
+.experience-slide img {
+  width: 200px; /* Larger image */
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px; /* More rounded corners */
+}
+
+.experience-content {
+  flex: 1;
+  max-width: 600px; /* Control the width of the content area */
+  text-align: left; /* Align text to the left */
+}
+
+.experience-content h3 {
+  font-size: 1.75rem; /* Larger font size for the title */
+  color: #55390a; /* Title color */
+  margin-bottom: 10px;
+}
+
+.experience-date, .experience-position {
+  font-size: 1.2rem; /* Larger font size for the date */
+  color: #7f5d1e; /* Date color */
+  margin-bottom: 5px;
+}
+
+.experience-content ul {
+  font-size: 1.2rem; /* Larger font size for the description */
+  color: #333; /* Description color */
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-item-center {
+  transform: scale(1.1); /* Make the centered item larger */
+  transition: transform 0.5s ease; /* Smooth scaling transition */
+}
+
+/************ Contact Css ************/
 .contact {
   background-image: url('./assets/img/contact-bg.png'); /* Corrected */;
   padding: 60px 0 200px 0;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .contact img {
   width: 92%;
