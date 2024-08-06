@@ -12,6 +12,10 @@ import python from "../assets/img/python.png";
 import react from "../assets/img/react.png";
 import sql from "../assets/img/sql.png";
 import vue from "../assets/img/vue.png";
+import c from "../assets/img/c.png";
+import csharp from "../assets/img/csharp.png";
+import java from "../assets/img/java.png";
+import verilog from "../assets/img/verilog.png";
 import 'react-multi-carousel/lib/styles.css';
 
 const skillsData = {
@@ -32,16 +36,16 @@ const skillsData = {
     database: [
       { name: 'SQL', level: 85, icon: sql },
       { name: 'MongoDB', level: 60, icon: mongodb },
-      { name: 'pandas', level: 70, icon: html },
-      { name: 'matplotlib', level: 70, icon: html },
-      { name: 'scikit-learn', level: 70, icon: html }
+      { name: 'pandas', level: 70, icon: python },
+      { name: 'matplotlib', level: 70, icon: python },
+      { name: 'scikit-learn', level: 70, icon: python }
     ],
     programmingLanguages: [
       { name: 'Python', level: 80, icon: python },
-      { name: 'C', level: 95, icon: html },
-      { name: 'C#', level: 70, icon: html },
-      { name: 'Java', level: 95, icon: html },
-      { name: 'Verilog', level: 75, icon: html }
+      { name: 'C', level: 95, icon: c },
+      { name: 'C#', level: 70, icon: csharp },
+      { name: 'Java', level: 95, icon: java },
+      { name: 'Verilog', level: 75, icon: verilog }
     ]
   };
 

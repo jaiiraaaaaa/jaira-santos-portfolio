@@ -7,6 +7,7 @@ import empathy from "../assets/img/empathy.png";
 import cssweng from "../assets/img/cssweng.png";
 import hci2001 from "../assets/img/hci2001.png";
 import sthciux from "../assets/img/sthciux.png";
+import ccinov8 from "../assets/img/ccinov8.png";
 import digimap from "../assets/img/digimap.png";
 import csarch2 from "../assets/img/csarch2.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
@@ -33,12 +34,12 @@ export const Projects = () => {
       imgUrl: mobdeve,
       link: 'https://github.com/jaiiraaaaaa/MOBDEVE_Project'
     },
-    {
+    /**{
       title: "Web Watcher",
       description: "A browser extension designed to monitor and nudge users towards healthier social media habits, with a focus on empathy and personalized intervention.",
       imgUrl: empathy,
       link: 'https://github.com/fdoble12/EMPATHY_MCO.git'
-    },
+    },**/
   ];
 
   const projects2 = [
@@ -55,9 +56,9 @@ export const Projects = () => {
       link: 'https://www.figma.com/proto/dnbrof96q2GI1IutfIIz4A?node-id=0-1&t=sIr8PWKQqvMS2ANr-6'
     },
     {
-      title: "WealthWise Financial Literacy Community",
+      title: "WealthWise Financial Literacy App",
       description: "A app prototype focused on empowering individuals through financial literacy. This prototype showcases features that enable users to share insights, seek guidance, and grow economically within a supportive community.",
-      imgUrl: mobdeve,
+      imgUrl: ccinov8,
       link: 'https://www.figma.com/proto/GsHwY7JxYAczUorZNdHpaq/WEALTHWISE-FINAL?node-id=7020-3632&t=n2qN8PCb6nugrzOS-1&starting-point-node-id=7020:3572'
     }
   ];

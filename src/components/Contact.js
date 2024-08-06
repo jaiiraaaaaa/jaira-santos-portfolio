@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -26,7 +26,8 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    let response = await fetch("http://localhost:5000/contact", {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+    let response = await fetch(`${backendUrl}/contact`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -36,10 +37,10 @@ export const Contact = () => {
     setButtonText("Send");
     let result = await response.json();
     setFormDetails(formInitialDetails);
-    if (result.code == 200) {
-      setStatus({ succes: true, message: 'Message sent successfully'});
+    if (result.code === 200) {
+      setStatus({ success: true, message: 'Message sent successfully' });
     } else {
-      setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
+      setStatus({ success: false, message: 'Something went wrong, please try again later.' });
     }
   };
 
@@ -49,23 +50,20 @@ export const Contact = () => {
         <Row className="align-items-center">
           <Col size={12} md={6}>
             <TrackVisibility>
-              {({ isVisible }) =>
-                <img className={isVisible ? "animate__animated animate__zoomIn" : ""} src={contactImg} alt="Contact Us"/>
-              }
             </TrackVisibility>
           </Col>
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <h2>Get In Touch</h2>
+                <h2>Get in Touch</h2>
                 <form onSubmit={handleSubmit}>
                   <Row>
                     <Col size={12} sm={6} className="px-1">
                       <input type="text" value={formDetails.firstName} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
                     </Col>
                     <Col size={12} sm={6} className="px-1">
-                      <input type="text" value={formDetails.lasttName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)}/>
+                      <input type="text" value={formDetails.lastName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)}/>
                     </Col>
                     <Col size={12} sm={6} className="px-1">
                       <input type="email" value={formDetails.email} placeholder="Email Address" onChange={(e) => onFormUpdate('email', e.target.value)} />
@@ -80,7 +78,7 @@ export const Contact = () => {
                     {
                       status.message &&
                       <Col>
-                        <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
+                        <Alert variant={status.success ? "success" : "danger"}>{status.message}</Alert>
                       </Col>
                     }
                   </Row>
