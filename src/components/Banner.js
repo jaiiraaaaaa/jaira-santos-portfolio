@@ -11,8 +11,8 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "A Web Developer.", "A Web Designer.", "A UI/UX Designer." ];
-  const period = 2000;
+  const toRotate = [ "\nA Web Developer.", "\nA Web Designer.", "\nA UI/UX Designer." ];
+  const period = 1000;
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -47,6 +47,35 @@ export const Banner = () => {
     }
   }
 
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const img = document.getElementById('header-img');
+      const container = img.parentElement;
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      // Set limits for movement
+      const maxMove = 50; // Maximum movement in any direction
+      const moveX = Math.min(Math.max(x / 20, -maxMove), maxMove);
+      const moveY = Math.min(Math.max(y / 20, -maxMove), maxMove);
+
+      img.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  const handleDownloadClick = (event) => {
+    console.log('Attempting to download resume');
+    alert('Your download should start shortly.');
+    // Optional: Additional logic can be added here if needed
+  };
+
   return (
     <section className="banner" id="home">
       <Container>
@@ -56,9 +85,15 @@ export const Banner = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">Welcome to My Portfolio</span>
-                <h1>{`Hey there! I'm Jaira.`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
-                  <p>I am a fourth-year undergraduate student completing my Bachelor's degree in Computer Science with a specialization in Software Technology. My skills include web development, UI/UX design, and intelligent systems/models. I have practical experience in developing web applications and intelligent solutions through research, internships, and projects, and I am excited to apply my expertise to innovative projects in the technology industry.</p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                <h1>
+                  {`Hello there! I'm Jaira.`}{" "} </h1>
+                  <h2><span className="txt-rotate" dataPeriod="700" data-rotate='[ "A web developer.", "A web designer.", "A UI/UX Designer" ]'><span className="wrap">{text}</span></span></h2>
+                    
+                  <p>I am an experienced Web Developer with a strong background in designing and deploying custom websites, proficient in <b>front-end and back-end technologies.</b> With experience in leading large student organizations and a strong academic background in Computer Science from De La Salle University, I am skilled in <b>project management </b>and <b>adept at adapting to new technologies.</b> </p>
+
+                  <a href="/assets/files/resume.pdf" download onClick={handleDownloadClick} className="download-link">
+                    <button>Download Resume <ArrowRightCircle size={25} /></button>
+                  </a>
               </div>}
             </TrackVisibility>
           </Col>
@@ -66,7 +101,7 @@ export const Banner = () => {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  <img src={headerImg} alt="Header Img"/>
+                  <img id="header-img" src={headerImg} alt="Header Img"/>
                 </div>}
             </TrackVisibility>
           </Col>

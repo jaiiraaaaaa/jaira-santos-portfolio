@@ -81,6 +81,19 @@ p.success {
 p.danger {
 	color: red;
 }
+
+/* Custom cursor */
+
+body {
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  background-color: #121212 !important;
+  color: #fff !important;
+  font-family: 'Centra', sans-serif !important;
+  cursor: url('./assets/img/custom-cursor.png'), auto !important;
+}
+
 /************ Navbar Css ************/
 nav.navbar {
   padding: 18px 0;
@@ -235,7 +248,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
-  background-image: url('./assets/img/banner-bg.png');
+  background-image: url('./assets/img/background-img.png'); /* Corrected */;
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -244,7 +257,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 700;
   letter-spacing: 0.8px;
   padding: 8px 10px;
-  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+  background: linear-gradient(90.21deg, rgba(112, 224, 198, 0.5) -5.91%, rgba(15, 102, 35, 0.5) 111.58%);
   border: 1px solid rgba(255, 255, 255, 0.5);
   font-size: 20px;
   margin-bottom: 16px;
@@ -284,7 +297,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-left: 25px;
 }
 .banner img {
-  animation: updown 3s linear infinite;
+  transition: transform 0.1s ease-out;
 }
 @keyframes updown {
     0% {
@@ -301,28 +314,63 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-right: 0.08em solid #666;
 }
 
+.download-link {
+  text-decoration: none; /* Removes the underline */
+}
+
+.download-link button {
+  border: none; /* Removes any default button styling if needed */
+  background: none; /* Ensures no background color is applied */
+  cursor: pointer; /* Makes the cursor a pointer to indicate it's clickable */
+}
+
 /************ Skills Css ************/
 .skill {
   padding: 0 0 50px 0;
   position: relative;
+  background-image: url('./assets/img/skills-bg.png');
 }
+
+/* Keyframes for the upward transition */
+@keyframes moveUp {
+  from {
+    transform: translateY(50px); /* Start from below */
+    opacity: 0; /* Start as invisible */
+  }
+  to {
+    transform: translateY(0); /* End at its normal position */
+    opacity: 1; /* End as visible */
+  }
+}
+
 .skill-bx {
-  background: #25021f;
+  background: #834e11;
   border-radius: 64px;
   text-align: center;
   padding: 60px 50px;
   margin-top: -60px;
+  margin-bottom: 80px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
+
+  /* Apply animation */
+  animation: moveUp 0.6s ease-out; /* Adjust duration and timing function as needed */
 }
+
+.skill-bx:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 1); /* Darken shadow on hover */
+}
+
 .skill h2 {
-	font-size: 45px;
-	font-weight: 700;
+  font-size: 45px;
+  font-weight: 700;
 }
 .skill p {
     color: #B8B8B8;
     font-size: 18px;
     letter-spacing: 0.8px;
     line-height: 1.5em;
-    margin: 14px 0 75px 0;
+    margin: 14px 0 50px 0;
 }
 .skill-slider {
   width: 80%;
@@ -333,19 +381,122 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 50%;
   margin: 0 auto 15px auto;
 }
-.background-image-left {
-  top: 28%;
-  position: absolute;
-  bottom: 0;
-  width: 40%;
-  z-index: -4;
+
+.skill-category {
+  margin-bottom: 30px;
+}
+
+.skill-category h3 {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #55390a;
+  border-radius: 10px; /* Adjust for desired roundness */
+  font-size: 1.5rem; /* Adjust font size as needed */
+  color: #f4f1e8; /* Text color */
+  margin-bottom: 20px; /* Space below the heading */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+}
+
+.skill-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.skill-icon {
+  margin-right: 15px;
+}
+
+.skill-icon img {
+  width: 40px; /* Adjust size as needed */
+  height: auto;
+}
+
+.skill-content {
+  flex: 1;
+}
+
+.skill-bar h5 {
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.skill-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items at the top */
+  gap: 20px; /* Add gap between columns */
+}
+
+.skill-column {
+  flex: 1;
+  min-width: 45%; /* Ensures each column takes up about half the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+}
+
+.skill-bar {
+  margin-bottom: 20px;
+  width: 100%; /* Ensure bars take full width of column */
+  max-width: 500px; /* Limits the width of progress bars */
+}
+
+.skill-bar h5 {
+  margin-bottom: 5px;
+}
+
+@keyframes fillBar {
+  from {
+    width: 0%; /* Start from 0% width */
+  }
+  to {
+    width: var(width, 100%); /* End at the specified width (default to 100%) */
+  }
+}
+
+.progress {
+  height: 20px;
+  border-radius: 30px; /* More rounded */
+  background: rgba(255, 255, 255, 0.1) !important; /* Translucent background */
+  overflow: hidden;
+  width: 100%;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); /* 3D effect */
+  position: relative;
+  transition: background 0.6s ease; /* Smooth transition */
+}
+
+/* Progress bar inside the container */
+.progress-bar {
+  height: 100%;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  background: #134e2b !important; /* Dark green */
+  border-radius: 10px; /* Rounded */
+  transition: background 0.6s ease; /* Smooth transition for background color */
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), inset 0 -3px 5px rgba(0, 0, 0, 0.3); /* 3D effect */
+  position: relative;
+  
+  /* Apply animation */
+  animation: fillBar 1s ease-out; /* Adjust duration and timing function as needed */
+}
+
+/* Example of hover effect to show the transition */
+.skill-bar:hover .progress-bar {
+  background: #0b3d2e; /* Darker green */
+}
+
+.skill-bar:hover .progress::before {
+  transform: translateX(0);
 }
 
 /************ Projects Css ************/
 .project {
   padding: 80px 0;
   position: relative;
-  background-color: black;
+  background-color: #022015;
 }
 .project h2 {
 	font-size: 45px;
@@ -390,7 +541,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     position: absolute;
     width: 0;
     height: 100%;
-    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    background: linear-gradient(90.21deg, #4d9d89 -5.91%, #07441a 111.58%);
     top: 0;
     left: 0;
     z-index: -1;
@@ -425,7 +576,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .proj-imgbx::before {
   content: "";
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  background: linear-gradient(90.21deg, #4d9d89 -5.91%, #07441a 111.58%);
   opacity: 0.85;
   position: absolute;
   width: 100%;

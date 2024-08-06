@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import ccapdev from "../assets/img/ccapdev.png";
@@ -54,6 +54,12 @@ export const Projects = () => {
       imgUrl: sthciux,
       link: 'https://www.figma.com/proto/dnbrof96q2GI1IutfIIz4A?node-id=0-1&t=sIr8PWKQqvMS2ANr-6'
     },
+    {
+      title: "WealthWise Financial Literacy Community",
+      description: "A app prototype focused on empowering individuals through financial literacy. This prototype showcases features that enable users to share insights, seek guidance, and grow economically within a supportive community.",
+      imgUrl: mobdeve,
+      link: 'https://www.figma.com/proto/GsHwY7JxYAczUorZNdHpaq/WEALTHWISE-FINAL?node-id=7020-3632&t=n2qN8PCb6nugrzOS-1&starting-point-node-id=7020:3572'
+    }
   ];
 
   const projects3 = [
@@ -86,13 +92,13 @@ export const Projects = () => {
               <Tab.Container id="projects-tabs" defaultActiveKey="first">
                 <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                   <Nav.Item>
-                    <Nav.Link eventKey="first" style={{ cursor: 'pointer' }}>Web and Mobile Applications</Nav.Link>
+                    <Nav.Link eventKey="first" style={{ cursor: 'pointer' }}>Apps</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="second" style={{ cursor: 'pointer' }}>UI / UX Projects</Nav.Link>
+                    <Nav.Link eventKey="second" style={{ cursor: 'pointer' }}>UI / UX</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="third" style={{ cursor: 'pointer' }}>Simulation Projects</Nav.Link>
+                    <Nav.Link eventKey="third" style={{ cursor: 'pointer' }}>Others</Nav.Link>
                   </Nav.Item>
                 </Nav>
                 <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
