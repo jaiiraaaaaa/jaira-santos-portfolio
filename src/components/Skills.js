@@ -49,31 +49,6 @@ const skillsData = {
     ]
   };
 
-  const useInView = () => {
-    useEffect(() => {
-      const handleScroll = () => {
-        const elements = document.querySelectorAll('.slide-in');
-        elements.forEach(el => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight && rect.bottom > 0) {
-            el.classList.add('in-view');
-          } else {
-            el.classList.remove('in-view');
-          }
-        });
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-      handleScroll(); // Initial check
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, []);
-  };
-  
-export default useInView;
-
 export const Skills = () => {
   const responsive = {
     superLargeDesktop: {
