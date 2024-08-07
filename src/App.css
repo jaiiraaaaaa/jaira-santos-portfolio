@@ -334,14 +334,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-repeat: no-repeat;
 }
 
-/* Keyframes for the upward transition */
-@keyframes moveUp {
+/* Keyframes for the sliding transition */
+@keyframes slideIn {
   from {
-    transform: translateY(50px); /* Start from below */
+    transform: translateX(-100vw); /* Start from the leftmost side */
     opacity: 0; /* Start as invisible */
   }
   to {
-    transform: translateY(0); /* End at its normal position */
+    transform: translateX(0); /* End at its normal position */
     opacity: 1; /* End as visible */
   }
 }
@@ -353,10 +353,18 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 60px 50px;
   margin-top: -60px;
   margin-bottom: 80px;
+  opacity: 1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  /* Apply the sliding animation */
+  animation: slideIn 1s ease-out; /* Adjust duration and timing function as needed */
+}
 
-  /* Apply animation */
-  animation: moveUp 0.6s ease-out; /* Adjust duration and timing function as needed */
+/* Trigger animation when the section is in view */
+#skills:target .skill-bx {
+  animation: slideIn 1s ease-out; /* Apply animation */
+  opacity: 1; /* Make visible */
+  transform: translateX(0); /* Move to normal position */
 }
 
 .skill-bx:hover {
@@ -438,7 +446,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start; /* Align items at the top */
-  gap: 20px; /* Add gap between columns */
+  gap: 0px; /* Add gap between columns */
 }
 
 .skill-column {
@@ -450,7 +458,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .skill-bar {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   width: 100%; /* Ensure bars take full width of column */
   max-width: 500px; /* Limits the width of progress bars */
 }
@@ -555,7 +563,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     position: absolute;
     width: 0;
     height: 100%;
-    background: linear-gradient(90.21deg, #4d9d89 -5.91%, #07441a 111.58%);
+    background: linear-gradient(90.21deg, #1d7b64 -5.91%, #07441a 111.58%);
     top: 0;
     left: 0;
     z-index: -1;
@@ -586,11 +594,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin: 0px;
   width: '100%';
   height: '100%';
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .proj-imgbx::before {
   content: "";
-  background: linear-gradient(90.21deg, #4d9d89 -5.91%, #07441a 111.58%);
+  background: linear-gradient(90.21deg, #1d7b64 -5.91%, #07441a 111.58%);;
   opacity: 0.85;
   position: absolute;
   width: 100%;
@@ -600,6 +609,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .proj-imgbx:hover::before {
   height: 100%;
 }
+.proj-imgbx:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 1); /* Darken shadow on hover */
+}
+
 .proj-txtx {
   position: absolute;
   text-align: center;
@@ -652,7 +666,20 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Lifted effect */
   padding: 50px;
   text-align: center; /* Center title */
+  transition: opacity 1s ease-out, transform 1s ease-out;
   animation: moveUp 0.6s ease-out; /* Adjust duration and timing function as needed */
+}
+
+/* Trigger animation when the section is in view */
+#experiences:target .experiences-bx {
+  animation: slideIn 1s ease-out; /* Apply animation */
+  opacity: 1; /* Make visible */
+  transform: translateX(0); /* Move to normal position */
+}
+
+.experiences-bx:hover{
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 1); /* Darken shadow on hover */
 }
 
 .experiences-bx h2 {
@@ -669,6 +696,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   gap: 20px;
   padding: 20px;
   box-sizing: border-box;
+  transition: opacity 0.5s ease-out, transform 1s ease-out;
 }
 
 /* Enlarges the experience card on hover */

@@ -4,7 +4,7 @@ import bootstrap from "../assets/img/bootstrap.png";
 import tailwind from "../assets/img/tailwind.png";
 import css from "../assets/img/css.png";
 import expressjs from "../assets/img/expressjs.png";
-import flask from "../assets/img/flask.png";
+import figma from "../assets/img/figma.png";
 import html from "../assets/img/html.png";
 import mongodb from "../assets/img/mongodb.png";
 import node from "../assets/img/node.png";
@@ -31,7 +31,7 @@ const skillsData = {
       { name: 'Node.js', level: 75, icon: node },
       { name: 'JavaScript', level: 65, icon: html },
       { name: 'Express.js', level: 60, icon: expressjs },
-      { name: 'Flask', level: 60, icon: flask }
+      { name: 'Figma', level: 85, icon: figma }
     ],
     database: [
       { name: 'SQL', level: 85, icon: sql },
@@ -48,6 +48,31 @@ const skillsData = {
       { name: 'Verilog', level: 75, icon: verilog }
     ]
   };
+
+  const useInView = () => {
+    useEffect(() => {
+      const handleScroll = () => {
+        const elements = document.querySelectorAll('.slide-in');
+        elements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add('in-view');
+          } else {
+            el.classList.remove('in-view');
+          }
+        });
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      handleScroll(); // Initial check
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+  };
+  
+export default useInView;
 
 export const Skills = () => {
   const responsive = {
