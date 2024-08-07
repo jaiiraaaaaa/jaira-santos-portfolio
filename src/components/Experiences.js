@@ -14,7 +14,7 @@ const experiencesData = [
       position: "Freelance Web Developer",
       date: "June 2024 - Present",
       description: [
-        "Designed and developed custom websites for various clients, focusing on responsive design, performance, and accessibility",
+        "Designed and developed custom websites for clients, focusing on responsive design, performance, and accessibility",
         "Deployed websites: ardenconsult.org"
       ],
       imgUrl: arden
