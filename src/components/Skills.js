@@ -77,7 +77,7 @@ export const Skills = () => {
           <Col md={12}>
             <div className="skill-bx wow zoomIn">
               <h2>Skills</h2>
-              <p>This section highlights my proficiency in a diverse range of web technologies and frameworks.</p>
+              <p>As a passionate web developer, I bring a diverse set of skills that span across various aspects of software development.</p>
 
               {/* Frontend and Backend Skills */}
               <div className="skill-category">
