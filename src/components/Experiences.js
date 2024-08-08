@@ -85,7 +85,7 @@ export const Experiences = () => {
         <Row>
           <Col md={12}>
             <div className="experiences-bx wow zoomIn">
-              <h2>Experiences</h2>
+              <h2>Experience</h2>
               <Carousel responsive={responsive}>
                 {experiencesData.map((exp, index) => (
                   <div key={index} className="experience-slide">
