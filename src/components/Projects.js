@@ -51,10 +51,10 @@ export const Projects = () => {
 
   const projects2 = [
     {
-      title: "Redesigned McDonald's Kiosk",
-      description: "McDonald’s kiosk's ergonomic constraints and navigational complexities are addressed by exploring different layouts that use a more efficient placement of buttons.",
-      imgUrl: hci2001,
-      link: 'https://github.com/giogerardino/HCI2001-COIN-Project.git'
+      title: "WealthWise Financial Literacy App",
+      description: "A app prototype focused on empowering individuals through financial literacy. This prototype showcases features that enable users to share insights, seek guidance, and grow economically within a supportive community.",
+      imgUrl: ccinov8,
+      link: 'https://www.figma.com/proto/GsHwY7JxYAczUorZNdHpaq/WEALTHWISE-FINAL?node-id=7020-3632&t=n2qN8PCb6nugrzOS-1&starting-point-node-id=7020:3572'
     },
     {
       title: "Redesigned DLSU Enrollment System",
@@ -63,11 +63,11 @@ export const Projects = () => {
       link: 'https://www.figma.com/proto/dnbrof96q2GI1IutfIIz4A?node-id=0-1&t=sIr8PWKQqvMS2ANr-6'
     },
     {
-      title: "WealthWise Financial Literacy App",
-      description: "A app prototype focused on empowering individuals through financial literacy. This prototype showcases features that enable users to share insights, seek guidance, and grow economically within a supportive community.",
-      imgUrl: ccinov8,
-      link: 'https://www.figma.com/proto/GsHwY7JxYAczUorZNdHpaq/WEALTHWISE-FINAL?node-id=7020-3632&t=n2qN8PCb6nugrzOS-1&starting-point-node-id=7020:3572'
-    }
+      title: "Redesigned McDonald's Kiosk",
+      description: "McDonald’s kiosk's ergonomic constraints and navigational complexities are addressed by exploring different layouts that use a more efficient placement of buttons.",
+      imgUrl: hci2001,
+      link: 'https://github.com/giogerardino/HCI2001-COIN-Project.git'
+    },
   ];
 
   const projects3 = [
