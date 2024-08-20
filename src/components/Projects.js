@@ -10,12 +10,19 @@ import sthciux from "../assets/img/sthciux.png";
 import ccinov8 from "../assets/img/ccinov8.png";
 import digimap from "../assets/img/digimap.png";
 import csarch2 from "../assets/img/csarch2.png";
+import arden from "../assets/img/ardenconsult.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 export const Projects = () => {
   const projects1 = [
+    {
+      title: "Arden Consult",
+      description: "Arden Consult's website provides an overview of the firm's services, offers detailed information about their regulatory consulting expertise, and includes a built-in contact form for client inquiries.",
+      imgUrl: arden,
+      link: 'https://ardenconsult.org/'
+    },
     {
       title: "SWSI Web Portal",
       description: "An online platform to consolidate, streamline, and manage the interactions between SWSI and its customers.",
