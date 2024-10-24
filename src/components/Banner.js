@@ -91,7 +91,7 @@ export const Banner = () => {
                     
                   <p>I am an experienced Web Developer with a strong background in designing and deploying custom websites, proficient in <b>front-end and back-end technologies.</b> With experience in leading large student organizations and a strong academic background in Computer Science from De La Salle University, I am skilled in <b>project management </b>and <b>adept at adapting to new technologies.</b> </p>
 
-                  <a href="/assets/files/resume.pdf" download onClick={handleDownloadClick} className="download-link">
+                  <a href="/assets/files/Resume_Jaira_Santos.pdf" download onClick={handleDownloadClick} className="download-link">
                     <button>Download Resume <ArrowRightCircle size={25} /></button>
                   </a>
               </div>}
